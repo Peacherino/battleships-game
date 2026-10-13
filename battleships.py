@@ -1,4 +1,3 @@
-
 from fltk import *
 import socket
 from threading import Thread
@@ -8,6 +7,7 @@ ROWS = 5
 COLS = 5
 BUTTON_SIZE = 200
 MAX_SHIPS = 5
+
 
 class Battlefield(Fl_Window):
     def __init__(self, x, y, w, h, title, is_client=False, host=None, port=None):
@@ -90,7 +90,7 @@ class Battlefield(Fl_Window):
                     else:
                         row, col = map(int, data.split(","))
                         self.pending_moves.put((row, col))
-                    #Fl.awake(lambda : self.click_opponent(row, col))
+                    # Fl.awake(lambda : self.click_opponent(row, col))
             except Exception as e:
                 print(f"Error receiving move: {e}")
                 break
@@ -99,7 +99,7 @@ class Battlefield(Fl_Window):
         if self.game_over:
             return
 
-        #print("Processing opponent's move")
+        # print("Processing opponent's move")
         btn = self.my_grid[row][col]
 
         if btn.ship_placed:
@@ -174,13 +174,12 @@ class Buttons(Fl_Button):
                     self.battlefield.placing_ships = False
                     print("Maximum ships placed!")
         else:
-            #print("Is Client:", self.battlefield.is_client)
-            #print("Current turn:", self.battlefield.my_turn)
+            # print("Is Client:", self.battlefield.is_client)
+            # print("Current turn:", self.battlefield.my_turn)
             if self.battlefield.my_turn:
                 self.battlefield.move_send(self.row, self.col)
             else:
                 print("Not your turn!")
-            
 
 
 if __name__ == "__main__":
@@ -192,6 +191,14 @@ if __name__ == "__main__":
     parser.add_argument("--client", action="store_true")
     args = parser.parse_args()
 
-    app = Battlefield(100, 100, BUTTON_SIZE * COLS, BUTTON_SIZE * ROWS, "Battleship Game", args.client, args.host, args.port)
+    app = Battlefield(
+        100,
+        100,
+        BUTTON_SIZE * COLS,
+        BUTTON_SIZE * ROWS,
+        "Battleship Game",
+        args.client,
+        args.host,
+        args.port,
+    )
     Fl.run()
-
