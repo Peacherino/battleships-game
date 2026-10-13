@@ -1,9 +1,10 @@
-## Screenshot of gameplay
-
-
+# Minesweeper
 This is a battleships game for two players to compete on over a local network.
 
 This program was written in python with a GUI made using pyFLTK.
+
+## Screenshot of gameplay
+<img width="1350" height="689" alt="battleships-game" src="https://github.com/user-attachments/assets/dcd9554b-dc47-4596-aced-30473b81ff02" />
 
 ## About Project:
 
@@ -53,7 +54,7 @@ Building this taught me a lot about debugging networking errors, working with mu
    python3 battleships.py
 
 #### 2.1 (If on one computer) Join the game using a seperate terminal
-  python3 battleshipness5.py --client
+  python3 battleships.py --client
 
 #### 2.2 (If on a separate computer) Ensure second computer uses the server computer's local IP address
 
