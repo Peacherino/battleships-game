@@ -1,4 +1,4 @@
-# Minesweeper
+# Battleships
 This is a battleships game for two players to compete on over a local network.
 
 This program was written in python with a GUI made using pyFLTK.
